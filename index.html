@@ -25,10 +25,10 @@
    function nextImage(){
       if(order.length > 0){
          let next = Math.round(Math.random() * (order.length - 1));
-         document.getElementById("img").src = "/images/" + order[next] + ".jpg";
+         document.getElementById("img").src = "images/" + order[next] + ".jpg";
          order.splice(next, 1);
       }else{
-         document.getElementById("img").src = "/images/cow.jpg";
+         document.getElementById("img").src = "images/cow.jpg";
          for(let i = 0; i < 35; i ++){
             order.push((i + 1));
          }
