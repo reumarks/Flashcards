@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+      *.unselectable {
+         -moz-user-select: none;
+         -khtml-user-select: none;
+         -webkit-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+      }
+   </style>
+</head>
+<body>
+
+<title>Flashcards</title>
+
+<img unselectable="on" class="unselectable" id="img" src="" alt="study question" width="100%">
+
+<script>
+   document.addEventListener("click", nextImage);
+
+   var order = [];
+
+   function nextImage(){
+      if(order.length > 0){
+         let next = Math.round(Math.random() * (order.length - 1));
+         document.getElementById("img").src = "/images/" + order[next] + ".jpg";
+         order.splice(next, 1);
+      }else{
+         document.getElementById("img").src = "/images/cow.jpg";
+         for(let i = 0; i < 35; i ++){
+            order.push((i + 1));
+         }
+      }
+   }
+   nextImage();
+</script>
+
+</body>
+</html>
